@@ -11,10 +11,10 @@ const Paper = require('./Paper');
 //One university can have many courses.
 //Each course belongs to one university.
 University.hasMany(Course, { foreignKey: 'universityId' });
-Course.belongsTo(University);
+Course.belongsTo(University, { foreignKey: 'universityId' });
 
 Course.hasMany(Paper, { foreignKey: 'courseId' });
-Paper.belongsTo(Course);
+Paper.belongsTo(Course, { foreignKey: 'courseId' });
 
 module.exports = { sequelize, University, Course, Paper };
 

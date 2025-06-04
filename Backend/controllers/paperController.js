@@ -30,6 +30,7 @@ const uploadPaper = async (req, res) => {
     const paper = await Paper.create({ courseId, year, semester, fileUrl });
     res.status(201).json(paper);
   } catch (error) {
+    console.error('Upload failed:', error);
     res.status(500).json({ error: 'Failed to upload paper' });
   }
 };

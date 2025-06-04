@@ -1,5 +1,8 @@
 const express = require('express');
 const { sequelize } = require('./models');
+const cors = require('cors');
+
+
 require('dotenv').config();
 
 const universityRoutes = require('./routes/universityRoutes');
@@ -10,6 +13,9 @@ const paperRoutes = require('./routes/paperRoutes');
 const app = express();
 //allows Express to read JSON request bodies (e.g., from POST requests).
 app.use(express.json());
+
+
+app.use(cors());
 
 //These lines register the route files under a URL prefix:
 //Requests like GET /api/universities will go to the universityRoutes router.
